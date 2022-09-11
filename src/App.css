@@ -61,7 +61,7 @@ body{
   text-align: center;
   align-items: center;
   margin: 10px;
-  background-image: linear-gradient(white, aqua);
+  background-image: linear-gradient(white, rgb(9, 255, 0));
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -111,8 +111,6 @@ button{
 
 
 
-
-
 .tile {
   display: flex;
   justify-content: center;
@@ -130,7 +128,5 @@ button{
 
 }
 
-.tile--set {
-  background: khaki;
-}
+
 
