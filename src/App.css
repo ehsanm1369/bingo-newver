@@ -61,12 +61,12 @@ body{
   text-align: center;
   align-items: center;
   margin: 10px;
-  background-image: linear-gradient(white, rgb(9, 255, 0));
+  background-image: linear-gradient(white, rgb(57, 7, 70));
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 .clicked{
-  background-color: rgb(189, 51, 51);
+  background-color: rgb(255, 252, 65);
   text-decoration: line-through;
   animation: clicked 2s;
   opacity: 25%;
