@@ -2,7 +2,7 @@
   "name": "react-bingo-game",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://e333hsanm1369.github.io/React-bingo", 
+  "homepage": "https://ehsanm1369.github.io/react-bingo", 
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
