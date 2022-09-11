@@ -101,6 +101,7 @@ function App() {
   return (
     <div>
       <div className="container">
+        <h1>BINGO GAME</h1>
         <div className="wrapper">
           {Object.keys(randomData).map((id) => (
             <Cell
