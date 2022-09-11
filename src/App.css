@@ -1,38 +1,137 @@
-.App {
-  text-align: center;
+.container{
+  margin-top: 100px;
+padding-left: auto;
+padding-right: auto;
 }
 
-.App-logo {
-  height: 40vmin;
+#div12 {
+  background-color: white!important;
+  opacity: 100%!important;
+  pointer-events: none; 
+  text-decoration: none;
+}
+
+.grid{
+  border: 2px solid;
+  border-color: rgb(203, 234, 255);
+  font-size: calc(1px + 2vmin);
+  cursor: pointer;
+  background-color:white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+
+  padding: 0px!important;
+
+  min-width: 100px;
+  min-height: 70px;
+  
+}
+
+.p{
+  position: sticky;
+  bottom: 100%;
+  left: 100%;
+  font-weight: 400;
+  font-size: smaller;
+  
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  /* grid-template-columns: 100px 100px 100px 100px 100px;
+  grid-template-rows: 65px 65px 65px 65px 65px; */
+ text-align: center;
+ transform: rotate(-3deg);
+
+
+
+}
+
+
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+body{
+  text-align: center;
+  align-items: center;
+  margin: 10px;
+  background-image: linear-gradient(white, aqua);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.clicked{
+  background-color: rgb(189, 51, 51);
+  text-decoration: line-through;
+  animation: clicked 2s;
+  opacity: 25%;
+}
+@keyframes clicked {
+  0%{opacity: 100%;}
+  50%{opacity: 50%;}
+  100%{opacity: 25%;}
+  
+}
+
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button{
+ height: 40px;
+  width: 160px;
+  border-radius: 24px!important;
+  border: 2px solid rgb(84, 17, 146)!important;
+  margin: 5px!important;
+  background-color: rgb(84, 17, 146)!important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+
+
+
+
+.tile {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+
+  padding: 10px;
+  min-height: 40px;
+  font-weight: bold;
+  font-size: 20px;
+
+  border: 4px saddlebrown dashed;
+  border-radius: 10px;
+
+  cursor: pointer;
+
 }
 
-.App-link {
-  color: #61dafb;
+.tile--set {
+  background: khaki;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
