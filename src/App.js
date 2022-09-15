@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useState } from "react";
 import "./App.css";
 import Confetti from "react-confetti";
