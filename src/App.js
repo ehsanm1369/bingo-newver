@@ -7,11 +7,13 @@ function Confettishown() {
    
   return (
     <div>
-          <Confetti recycle={false}/>
+          <Confetti />
     </div>
 
   );
 }
+
+
 
 
 const cellData = [
@@ -69,31 +71,93 @@ function Cell({ id, children, onToggle, isSet }) {
 }
 
 function App() {
-  const [state, setState] = useState({ checked: { 12: true } });
+  const [state, setState] = useState({ checked: { 12: true }, checked2: { 12: true } });
 
-  const bingo = (checked) => {
+  const winLines = [
+    {seri: [0, 1, 2, 3, 4], win : false},
+    {seri: [5, 6, 7, 8, 9], win : false},
+    {seri: [10, 11,12, 13, 14], win : false},
+    {seri: [15, 16, 17, 18, 19], win : false},
+    {seri: [20, 21, 22, 23, 24], win : false},
+    {seri: [0, 5, 10, 15, 20], win : false},
+    {seri: [1, 6, 11, 16, 21], win : false},
+    {seri: [2, 7,12, 17, 22], win : false},
+    {seri: [3, 8, 13, 18, 23], win : false},
+    {seri: [4, 9, 14, 19, 24], win : false},
+    {seri: [0, 6, 12, 18, 24], win : false},
+    {seri: [4, 8, 12, 16, 20], win : false}
+  ];
+
+  const bingo = (checked2) => {
     const range = [0, 1, 2, 3, 4];
     return (
       undefined !==
         range.find((row) =>
-          range.every((column) => checked[row * 5 + column])
+          range.every((column) => checked2[row * 5 + column])
         ) ||
       undefined !==
         range.find((column) =>
-          range.every((row) => checked[row * 5 + column])
+          range.every((row) => checked2[row * 5 + column])
         ) ||
-      range.every((index) => checked[index * 5 + index]) ||
-      range.every((index) => checked[index * 5 + 4 - index])
+      range.every((index) => checked2[index * 5 + index]) ||
+      range.every((index) => checked2[index * 5 + 4 - index])
     );
   };
   const toggle = (id) =>
  
     setState((state) => { 
       const checked = { ...state.checked, [id]: !state.checked[id] };
-      var winner = bingo(checked); 
+      var checked2 = { ...state.checked2, [id]: !state.checked2[id] };
+      var winner = bingo(checked2); 
+      //console.log(winner);
+      if(winner===true) {
+        checked2 = { 12: true };
+      }
+
+
+        console.log(id);
+        //var val = winLines.map(x => x.seri.find(elm => elm === parseInt(id)));
+        var line = winLines.map(x => x.seri.map(el =>{
+          if(el === parseInt(id)){
+  
+            return x.seri;
+  
+          }
+        })).map(x => x.filter(a => a !== undefined)).filter(res => res.length > 0)
+      //line = line.map(x => x.filter(a => a !== undefined)).filter(res => res.length > 0)
+      
+      console.log(checked);
+        //console.log(line);
+        //var matchCount = 0;
+        
+        
+
+         
+          if(line.length > 0){
+
+            line.map(arr => {
+              var matchCount = 0;
+              arr.map(val => val.map(elm => {
+                Object.keys(checked).includes((elm).toString()) ? matchCount+=1 : matchCount+=0
+                  console.log(`matchCount is: ${matchCount}`);
+                  if(matchCount>4) {
+                    winner = true
+                  }
+              }))
+            });
+            //.find(val => val === parseInt(x))
+          }
+      
+       
+
+
+ 
+      
+      console.log(winner)
       return {
         ...state,
         checked,
+        checked2,
         winner
       };
     });
@@ -115,9 +179,8 @@ function App() {
           ))}
         </div>
       </div>
-      {state.winner ?  <Confettishown /> : null
-
-      }
+      {state.winner ?  <Confettishown /> : null}
+     
     </div>
   );
   
